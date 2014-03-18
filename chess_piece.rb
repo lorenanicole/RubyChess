@@ -6,18 +6,18 @@ require_relative 'move_jump'
 
 class Piece
 
-  attr_reader :color, :position
+  attr_reader :color, :position, :player
 
-  def initialize(color, position)
+  def initialize(color, position, player)
     @color = color
     @position = position
+    @player = player
   end
 
   def move(direction, number=1)
     num = number.to_i
     direction.downcase!
   end
-
 
 end
 
@@ -126,7 +126,6 @@ class Knight < Piece
   def move(direction)
 
     if direction.match(/jump/)
-      debugger
       move_jump(direction)
     end
 
