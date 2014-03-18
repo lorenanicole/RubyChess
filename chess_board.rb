@@ -2,11 +2,11 @@ require_relative 'chess_piece'
 
 class Board
 
-  attr_reader :cells
+  attr_reader :cells, :all_pieces
 
-  def initialize(pieces)
+  def initialize(all_pieces)
     @cells = Array.new(8) { Array.new(8) }
-    @all_pieces = pieces
+    @all_pieces = all_pieces
   end
 
   def populate_board

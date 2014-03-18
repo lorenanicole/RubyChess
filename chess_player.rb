@@ -2,7 +2,7 @@ require_relative 'chess_board'
 
 class Player
 
-  attr_reader :name, :pieces, :board
+  attr_reader :name, :pieces, :board, :number
 
   def initialize(options = {})
     @number = options.fetch(:number)
@@ -13,7 +13,7 @@ class Player
   end
 
   def remove_piece(location)
-    @board.cells[location.first].delete_if { |p| p.position == location }
+    board.all_pieces.delete_if { |p| p.position == location && p.player != number }
   end
 
 end
